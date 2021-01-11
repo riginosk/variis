@@ -1,17 +1,20 @@
 import React from 'react'
 import './base.css'
-import Container from './container'
-import Navigation from './navigation'
+import Chat from './chat/chat';
+import Navigation from './navigation/navigation'
 
 class Template extends React.Component {
+
   render() {
-    const { children } = this.props
+    const { children } = this.props;
+    const data = this.props;
 
     return (
-      <Container>
-        <Navigation />
+      <>
+        <Navigation  data={data} />
         {children}
-      </Container>
+        <Chat />
+      </>
     )
   }
 }

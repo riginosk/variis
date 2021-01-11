@@ -2,81 +2,47 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import Layout from '../components/layout'
-import Modules from '../components/modules'
+import Layout from '../../components/layout'
+import Modules from '../../components/modules'
 
-class RootIndex extends React.Component {
+class IntructorsTemplate extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const { data } = this.props;
-    const moduleData = data.allContentfulPage.edges[0].node;
-    const pageName = moduleData.pageName;
+    const moduleData = data.contentfulInstructor;
 
     return (
-      <Layout location={this.props.location} pageName={pageName}>
-          <Helmet title={siteTitle} />
-          <Modules location={this.props.location} moduleData={moduleData} />
-      </Layout>
+        <Layout location={this.props.location}>
+            <Helmet title={siteTitle}   bodyAttributes={{class: 'instructor'}} />
+            <Modules location={this.props.location} moduleData={moduleData} />
+        </Layout>
     )
   }
 }
 
-export default RootIndex
+export default IntructorsTemplate
 
-export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulPage(filter: {pageName: {eq: "Home Page"}}) {
-      nodes {
-        id
-      }
-      edges {
-        node {
+export const instructorQuery = graphql`
+  query InstructorQuery($slug: String!) {
+    contentfulInstructor(slug: { eq: $slug }) {
           id
-          pageName
+          instructorName
+          instructorImage {
+            fluid {
+                ...GatsbyContentfulFluid
+              }
+          }
           modules {
             __typename
             ... on Node {
-              ... on ContentfulContentPreview {
+              ... on ContentfulInstructorHero {
                 id
-                content {
-                  title
-                  video {
-                    id
-                    file {
-                      url
-                    }
-                  }
-                  description {
-                    description
-                  }
-                  image {
+                instructorImage {
                     fluid {
-                      ...GatsbyContentfulFluid
+                        ...GatsbyContentfulFluid
                     }
                   }
-                }
-                sectionText {
-                  childContentfulRichText {
-                    html
-                  }
-                }
-              }
-              ... on ContentfulCarousel {
-                id
-                slides {
-                  id
-                  title
-                  text {
-                    childContentfulRichText {
-                      html
-                    }
-                  }
-                  image {
-                    fluid {
-                      ...GatsbyContentfulFluid
-                    }
-                  }
-                }
+                instructorName
               }
               ... on ContentfulReviews {
                 id
@@ -130,15 +96,6 @@ export const pageQuery = graphql`
                 id
                 spaceSize
               }
-              ... on ContentfulHomeHero {
-                id
-                title
-                media {
-                  fluid {
-                    ...GatsbyContentfulFluid
-                  }
-                }
-              }
               ... on ContentfulTextBreaker {
                 id
                 textColor
@@ -157,48 +114,6 @@ export const pageQuery = graphql`
                 modules {
                   __typename
                   ... on Node {
-                    ... on ContentfulContentPreview {
-                      id
-                      content {
-                        title
-                        video {
-                          id
-                          file {
-                            url
-                          }
-                        }
-                        description {
-                          description
-                        }
-                        image {
-                          fluid {
-                            ...GatsbyContentfulFluid
-                          }
-                        }
-                      }
-                      sectionText {
-                        childContentfulRichText {
-                          html
-                        }
-                      }
-                    }
-                    ... on ContentfulCarousel {
-                      id
-                      slides {
-                        id
-                        title
-                        text {
-                          childContentfulRichText {
-                            html
-                          }
-                        }
-                        image {
-                          fluid {
-                            ...GatsbyContentfulFluid
-                          }
-                        }
-                      }
-                    }
                     ... on ContentfulReviews {
                       id
                       addReviews {
@@ -268,7 +183,5 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-    }
   }
 `

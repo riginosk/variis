@@ -1,0 +1,77 @@
+.instructors {
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: rem(60px);
+    }
+
+    &__instructor {
+        a {
+            text-decoration:none;
+        }
+    }
+
+    &__number {
+        grid-column: 1/3;
+    }
+
+    &__container {
+        grid-column: 3/13;
+    }
+
+    &__image {
+        margin-bottom: rem(22px);
+    }
+
+    &__header {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: rem(60px);
+        padding-top: 30px;
+        border-top: 1px solid;
+    }
+
+    &__number {
+        span {
+            font-family: $display-md;
+        }
+    }
+
+    &__title {
+        grid-column: 1/7;
+        font-family: $display;
+        font-size: 4.166vw;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+
+        span {
+            opacity:0.5;
+        }
+    }
+
+    &__description {
+        grid-column: 7/11;
+        padding-top:rem(20px);
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: rem(20px);
+        margin-top: rem(120px);
+    }
+
+    &__text {
+        font-family: $display;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0.015em;
+
+        span {
+            opacity:0.5;
+        }
+    }
+}
+
+

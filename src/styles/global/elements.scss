@@ -1,0 +1,24 @@
+.button {
+    button {
+        padding: rem(20px) rem(42px);
+        border-radius: rem(80px);
+        font-size: rem(18px);
+        line-height: rem(18px);
+        letter-spacing: -0.01em;
+    }
+}
+
+.play-button {
+    width:70px;
+    height:70px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background:#fff;
+    border-radius: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -2,18 +2,19 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import Layout from '../components/layout'
-import Modules from '../components/modules'
+import Layout from '../../components/layout'
+import Modules from '../../components/modules'
 
-class RootIndex extends React.Component {
+class BrandsTemplate extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const { data } = this.props;
-    const moduleData = data.allContentfulPage.edges[0].node;
-    const pageName = moduleData.pageName;
+    const moduleData = data.contentfulBrand;
+    const brandName = moduleData.brandName;
+    const logo = moduleData.logo.file.url;
 
     return (
-      <Layout location={this.props.location} pageName={pageName}>
+      <Layout location={this.props.location} brandName={brandName} logo={logo}>
           <Helmet title={siteTitle} />
           <Modules location={this.props.location} moduleData={moduleData} />
       </Layout>
@@ -21,60 +22,44 @@ class RootIndex extends React.Component {
   }
 }
 
-export default RootIndex
+export default BrandsTemplate
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulPage(filter: {pageName: {eq: "Home Page"}}) {
-      nodes {
-        id
-      }
-      edges {
-        node {
+  query BrandQuery($slug: String!) {
+    contentfulBrand(slug: { eq: $slug }) {
           id
-          pageName
+          brandName
+          logo {
+            file {
+              url
+            }
+          }
           modules {
             __typename
             ... on Node {
-              ... on ContentfulContentPreview {
+              ... on ContentfulInstructorsGrid {
                 id
-                content {
-                  title
-                  video {
-                    id
-                    file {
-                      url
-                    }
-                  }
-                  description {
-                    description
-                  }
-                  image {
-                    fluid {
-                      ...GatsbyContentfulFluid
-                    }
-                  }
+                brandName
+                description {
+                  id
+                  description
                 }
-                sectionText {
-                  childContentfulRichText {
-                    html
+                instructors {
+                  slug
+                  numberOfClasses
+                  instructorName
+                  instructorImage {
+                    fluid {
+                      ...GatsbyContentfulFluid 
+                    }
                   }
                 }
               }
-              ... on ContentfulCarousel {
+              ... on ContentfulBrandHero {
                 id
-                slides {
-                  id
-                  title
-                  text {
-                    childContentfulRichText {
-                      html
-                    }
-                  }
-                  image {
-                    fluid {
-                      ...GatsbyContentfulFluid
-                    }
+                image {
+                  fluid {
+                    ...GatsbyContentfulFluid
                   }
                 }
               }
@@ -130,15 +115,6 @@ export const pageQuery = graphql`
                 id
                 spaceSize
               }
-              ... on ContentfulHomeHero {
-                id
-                title
-                media {
-                  fluid {
-                    ...GatsbyContentfulFluid
-                  }
-                }
-              }
               ... on ContentfulTextBreaker {
                 id
                 textColor
@@ -157,44 +133,20 @@ export const pageQuery = graphql`
                 modules {
                   __typename
                   ... on Node {
-                    ... on ContentfulContentPreview {
+                    ... on ContentfulInstructorsGrid {
                       id
-                      content {
-                        title
-                        video {
-                          id
-                          file {
-                            url
-                          }
-                        }
-                        description {
-                          description
-                        }
-                        image {
-                          fluid {
-                            ...GatsbyContentfulFluid
-                          }
-                        }
-                      }
-                      sectionText {
-                        childContentfulRichText {
-                          html
-                        }
-                      }
-                    }
-                    ... on ContentfulCarousel {
-                      id
-                      slides {
+                      brandName
+                      description {
                         id
-                        title
-                        text {
-                          childContentfulRichText {
-                            html
-                          }
-                        }
-                        image {
+                        description
+                      }
+                      instructors {
+                        slug
+                        numberOfClasses
+                        instructorName
+                        instructorImage {
                           fluid {
-                            ...GatsbyContentfulFluid
+                            ...GatsbyContentfulFluid 
                           }
                         }
                       }
@@ -268,7 +220,5 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-    }
   }
 `

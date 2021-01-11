@@ -1,0 +1,14 @@
+.chat {
+    position: fixed;
+    bottom: rem(40px);
+    left: rem(70px);
+    padding: rem(23px);
+    z-index: 9;
+    background: #000;
+    border-radius: 100%;
+    
+    figure {
+        width:rem(18px);
+        height: rem(18px);
+    }
+}

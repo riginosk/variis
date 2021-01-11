@@ -1,0 +1,31 @@
+.carousel {
+    padding:0 rem(70px);
+
+    .carousel-slide {
+        width: 36.13vw;
+
+        img{
+            opacity:1!important;
+        }
+
+        &__description {
+            padding-top: rem(24px);
+            width:90%;
+        }
+
+        &__title {
+            font-family: $display-md;
+            font-size: rem(16px);
+            line-height: 160%;
+            letter-spacing: 0.015em;
+        }
+
+        &__text {
+            font-size: rem(16px);
+            line-height: 160%;
+            letter-spacing: 0.015em;
+            padding-top: 8px;
+            opacity: 0.6;
+        }
+    }
+}

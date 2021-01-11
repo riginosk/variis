@@ -1,0 +1,53 @@
+@import "../styles/mixins/px-to-rem.scss";
+@import "../styles/global/typography.scss";
+@import "../styles/global/normalize.scss";
+@import "../styles/global/structure.scss";
+@import "../styles/global/elements.scss";
+@import "../components/navigation/navigation.scss";
+@import "../components/secondary-navigation/secondary-navigation.scss";
+@import "../components/home-hero/home-hero.scss";
+@import "../components/space/space.scss";
+@import "../components/text-breaker/text-breaker.scss";
+@import "../components/brands-carousel/brands-carousel.scss";
+@import "../components/two-up/two-up.scss";
+@import "../components/full-width-media/full-width-media.scss";
+@import "../components/reviews/reviews.scss";
+@import "../components/smoothscroll/smoothscroll.scss";
+@import "../components/page-transition/page-transition.scss";
+@import "../components/chat/chat.scss";
+@import "../components/brand-hero/brand-hero.scss";
+@import "../components/instructor-hero/instructor-hero.scss";
+@import "../components/bike-specs/bike-specs.scss";
+@import "../pages/bike/bike.scss";
+@import "../templates/instructor/instructor.scss";
+@import "../components/instructors-grid/instructors-grid.scss";
+@import "../components/footer/footer.scss";
+@import "../components/bike-hero/bike-hero.scss";
+@import "../components/video-scrub/video-scrub.scss";
+@import "../components/carousel/carousel.scss";
+@import "../components/content-preview/content-preview.scss";
+@import "../components/modal/modal.scss";
+@import "../components/video-player/video-player.scss";
+
+.my-node-enter {
+  opacity: 0;
+  transform:translateX(100vw)
+}
+.my-node-enter-active {
+  transform:translateX(100vw);
+  opacity: 1;
+  transition: all 1000ms ease;
+}
+
+.my-node-enter-done {
+  transform:translateX(0);
+  opacity: 1;
+  transition: all 1000ms ease;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms;
+}

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import Modules from '../components/modules'
 
-class RootIndex extends React.Component {
+class AppPage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const { data } = this.props;
@@ -21,11 +21,11 @@ class RootIndex extends React.Component {
   }
 }
 
-export default RootIndex
+export default AppPage
 
 export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulPage(filter: {pageName: {eq: "Home Page"}}) {
+  query AppQuery {
+    allContentfulPage(filter: {pageName: {eq: "App Page"}}) {
       nodes {
         id
       }

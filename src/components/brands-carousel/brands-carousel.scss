@@ -1,0 +1,50 @@
+.brands-carousel {
+    width:100vw;
+    overflow: hidden;
+
+    .swiper-container {
+        margin-left: 140px;
+        overflow: visible;
+    }
+
+    .brand-slide {
+        width:25.773809523809522vw;
+
+        &__image-container {
+            position: relative;
+        }
+
+        &__logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: rem(90px);
+            max-width: rem(160px);
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            opacity:0;
+            transition: opacity 0.5s cubic-bezier(0.8, 0, 0.2, 1);
+        }
+
+        &__image {
+            img {
+                opacity: 1!important;
+            }
+        }
+
+        &__brand-name {
+            font-size: rem(16px);
+            line-height: 160%;
+            letter-spacing: 0.015em;
+            margin-top:rem(15px);
+
+        }
+    }
+
+    .brand-slide:hover {
+
+        .brand-slide__logo {
+            opacity: 1;
+        }
+    }
+}

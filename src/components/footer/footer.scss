@@ -1,0 +1,102 @@
+.footer {
+    font-size: rem(15px);
+    line-height: 200%;
+    padding: rem(72px) 0 rem(25px) 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    .grid {
+        grid-row-gap: rem(200px);
+    }
+
+    .form {
+        position:relative;
+        color: #fff;
+
+        &__input {
+            width: 100%;
+            font-size: 2.38vw;
+            line-height: 100%;
+            padding-bottom: rem(16px);
+            margin-top:rem(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+        }
+
+        &__input:focus::placeholder {
+            color: transparent;
+        }
+
+        &__input:focus {
+            outline: none;
+        }
+
+        &__submit {
+            position: absolute;
+            color: #fff;
+            bottom: 0;
+            right: rem(-30px);
+            font-size: rem(13px);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: rem(30px);
+        }
+    }
+
+    &__newsletter {
+        grid-column: 1/6;
+    }
+
+    &__links {
+        grid-column:8/11;
+    }
+
+    &__social {
+        grid-column: 11/13;
+
+        ul {
+            display: flex;
+            margin-top:rem(10px)
+        }
+
+        li:last-child {
+            margin-right:0;
+        }
+
+        li {
+            display:flex;
+            width: rem(40px);
+            height: rem(40px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 100%;
+            margin-right:rem(12px);
+
+            a {
+                display: flex;
+                width: 100%;
+            }
+
+            figure {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__secondary-links {
+        grid-column: 1/8;
+
+        li {
+            display:inline-block;
+            margin-right: rem(20px);
+        }
+    }
+
+    &__copyright {
+        grid-column: 8/13;
+        opacity: 0.5;
+    }
+
+}

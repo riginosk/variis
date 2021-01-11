@@ -1,0 +1,31 @@
+.instructor-hero {
+    position: relative;
+
+    &__image-container {
+        width:100vw;
+        height:100vh;
+        overflow: hidden;
+    }
+
+    &__header {
+        background: #ffffff;
+        padding: rem(40px) 0;
+        position: absolute;
+        width:100vw;
+        bottom:0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    &__header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    &__instructor-name {
+        margin:0;
+        font-family: $display;
+        line-height: 100%;
+        font-size: 7.142857142857142vw;
+    }
+}

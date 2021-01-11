@@ -5,16 +5,26 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
+    const brandPage = path.resolve('./src/templates/brand/brand.js')
+    const instructorPage = path.resolve('./src/templates/instructor/instructor.js')
+
     resolve(
       graphql(
         `
           {
-            allContentfulBlogPost {
+            allContentfulBrand {
               edges {
                 node {
-                  title
+                  brandName
                   slug
+                }
+              }
+            }
+            allContentfulInstructor {
+              edges {
+                node {
+                  slug
+                  instructorName
                 }
               }
             }
@@ -26,16 +36,29 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        const posts = result.data.allContentfulBlogPost.edges
-        posts.forEach(post => {
+        const brands = result.data.allContentfulBrand.edges
+        brands.forEach(brand => {
           createPage({
-            path: `/blog/${post.node.slug}/`,
-            component: blogPost,
+            path: `/${brand.node.slug}/`,
+            component: brandPage,
             context: {
-              slug: post.node.slug,
+              slug: brand.node.slug,
             },
           })
         })
+
+        const instructors = result.data.allContentfulInstructor.edges
+        instructors.forEach(instructor => {
+          createPage({
+            path: `/${instructor.node.slug}/`,
+            component: instructorPage,
+            context: {
+              slug: instructor.node.slug,
+            },
+          })
+        })
+
+        
       })
     )
   })

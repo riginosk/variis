@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "NHaasGroteskTXPro";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/NHaasGroteskTXPro-55Rg.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NHaasGroteskDSPro-55Rg";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/NHaasGroteskDSPro-55Rg.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NHaasGroteskDSPro-65Md";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/NHaasGroteskDSPro-65Md.woff2") format("woff2");
+    font-display: swap;
+}
+
+
+$text: 'NHaasGroteskTXPro', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+$display: 'NHaasGroteskDSPro-55Rg', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+$display-md: 'NHaasGroteskDSPro-65Md', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+

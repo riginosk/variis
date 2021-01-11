@@ -1,0 +1,16 @@
+.header {
+    .secondary-navigation {
+
+        &__logo {
+            width: auto;
+            height: 58px;
+            display: flex;
+            max-width: 160px;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+}

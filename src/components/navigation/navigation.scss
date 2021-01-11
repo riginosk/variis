@@ -1,0 +1,188 @@
+.header {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index:9;
+    color: #fff;
+    transition: all 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-family: $display;
+
+    &__wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: rem(32px) rem(70px);
+    }
+
+    &__background {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav ul {
+        display:flex;
+        border-right: rem(1px) solid rgba(255, 255, 255, 0.2);
+        margin-right: rem(20px);
+    }
+
+    nav li {
+        padding: 0 rem(20px);
+    }
+
+    nav li:last-child {
+        padding-right: rem(30px); 
+    }
+
+    .link {
+        font-weight: 400;
+        font-size: rem(20px);
+        line-height: rem(20px);
+        letter-spacing: 0.015em;
+        text-decoration:none;
+        transition: opacity 0.25s cubic-bezier(0.8, 0.0, 0.2, 1);
+    }
+
+    nav li a:hover {
+        opacity: 0.4;
+    }
+
+    figure {
+        width: rem(168px);
+        height: rem(16px);
+    }
+
+    figure svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    &__login {
+        transition: opacity 0.25s cubic-bezier(0.8, 0.0, 0.2, 1);
+
+        figure {
+            display: block;
+            width: rem(32px);
+            height: rem(32px);
+        }
+
+        span {
+            display:none;
+        }
+    }
+
+    &__login:hover {
+        opacity:0.4;
+    }
+
+    .secondary-navigation {
+        
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: rem(15px) 0 rem(17px) 0;
+
+            ul {
+                display: flex;
+
+                li {
+                    margin-right: rem(40px);
+                    position: relative;
+                }
+
+                li.is-active:before {
+                    content: '';
+                    width: 100%;
+                    position: absolute;
+                    height: 3px;
+                    bottom: -36px;
+                }
+            }
+        }
+    }
+
+    &--dark {
+
+        .secondary-navigation {
+
+            &__container {
+                border-top: 1px solid rgba(255, 255, 255, 0.2); 
+            }
+
+            li.is-active:before {
+               background:#959383;
+            }
+        }
+
+    }
+
+    &--light {
+        color:#000;
+
+        .header__background {
+            background:#fff;
+        }
+
+        nav ul {
+            border-right: rem(1px) solid rgba(0, 0, 0, 0.2);
+        }
+
+        svg path {
+            fill:#000000;
+        }
+
+        .secondary-navigation {
+
+            &__container {
+                border-top: 1px solid rgba(0, 0, 0, 0.2); 
+            }
+
+            li.is-active:before {
+                background:#000000;
+             }
+        }
+
+    }
+}
+
+
+.app-page, .bike-page {
+    nav {
+        li {
+            a { 
+                opacity: 0.4;
+            }
+
+            a:hover {
+                opacity: 1;
+            }
+
+            a.active {
+                opacity: 1;
+            }
+        }
+
+        .header__login {
+            opacity: 0.4;
+        }
+
+        .header__login:hover {
+            opacity: 1;
+        }
+        
+    }
+}

@@ -1,0 +1,20 @@
+.text-breaker {
+
+    &__inner {
+        grid-column: 1/10;
+        
+        p { 
+            font-family: $display;
+            font-size: rem(50px);
+            line-height: rem(60px);
+            color: #7A7A7A;
+
+            b{
+                font-weight:400;
+                color:#000;
+            }
+        }
+        
+    }
+}
+

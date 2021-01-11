@@ -1,0 +1,33 @@
+.two-up {
+    display: flex;
+    justify-content: space-between;
+    font-size: rem(24px);
+    line-height: rem(34px);
+
+    &__item {
+        width: calc(50% - 30px);
+        display: inline-block;
+    }
+
+    &__image {
+        margin-bottom: rem(15px);
+    }
+
+    &__title {
+        font-family: $display-md;
+    }
+
+    &__subtitle {
+        margin-bottom:rem(72px);
+    }
+
+    &__button {
+        width:rem(314px);
+        text-align: center;
+        font-size:rem(18px);
+        line-height: rem(18px);
+        padding: rem(20px) 0;
+        border-radius: rem(100px);
+    }
+}
+
