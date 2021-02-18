@@ -1,0 +1,61 @@
+.press-carousel {
+    padding:0 clamp(rem(60px), 4.166vw, rem(70px));
+    border: 1px solid rgba(0,0,0,0.1);
+    position:relative;
+
+    &__progress-container{
+        position:relative;
+    }
+
+    &__progress {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        width:50%;
+        z-index: 100;
+
+        #progress-bar {
+            background-color: #959383;
+            height: 3px;
+        }
+    }
+
+    .press-carousel-slide {
+        width: 50%;
+        min-height: 100%;
+        height: auto;
+        border-left: 1px solid rgba(0,0,0,0.1);
+        padding: clamp(rem(50px), 5.357vw, rem(90px)) clamp(rem(60px), 4.166vw, rem(70px));
+        
+        img {
+            opacity:1!important;
+            max-height: clamp(rem(30px), 2.381vw, rem(40px));
+            max-width: 100%;
+            width: auto;
+        }
+
+        &__description {
+            padding-top: rem(30px);
+        }
+
+        &__date {
+            font-size: rem(13px);
+            line-height: 100%;
+            letter-spacing: 0.03em;
+            color: #959383;
+            padding-bottom:rem(20px);
+        }
+
+        &__title {
+            font-family: $display;
+            font-size: clamp(rem(16px), 1.428vw, rem(24px));
+            line-height: 160%;
+            letter-spacing: 0.015em;
+        }
+
+    }
+}
+
+
+

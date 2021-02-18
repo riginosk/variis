@@ -7,6 +7,7 @@
     }
 
     &__instructor {
+        margin-top:clamp(rem(40px), 3.5714vw, rem(60px));
         a {
             text-decoration:none;
         }
@@ -33,6 +34,7 @@
     }
 
     &__number {
+        line-height: 120%;
         span {
             font-family: $display-md;
         }
@@ -59,7 +61,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: rem(20px);
-        margin-top: rem(120px);
+        margin-top: rem(60px);
     }
 
     &__text {

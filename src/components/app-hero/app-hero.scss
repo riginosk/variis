@@ -1,4 +1,4 @@
-.bike-hero {
+.app-hero {
     position:relative;
     width: 100vw;
     height:100vh;
@@ -13,7 +13,7 @@
 
     &__text {
         grid-column:10/13;
-        color:#000;
+        color:#fff;
 
         @include small-desktop {
             grid-column:8/13;
@@ -46,6 +46,19 @@
         overflow: hidden;
     }
 
+    &__text-ticker {
+        font-size: 23.80vw;
+        line-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: -5vw;
+        transform: translateY(-50%);
+        z-index: 1;
+        white-space: nowrap;
+        color:#101010;
+        mix-blend-mode: screen;
+    }
+
     &__image {
         position:absolute;
         width:100%;
@@ -58,18 +71,10 @@
             height:100%;
         }
 
-        &--middle {
-            bottom: 0;
-            left:0;
-            right:0;
-            z-index: 2;
-            height:100%;
-        }
-
         &--front {
             width:55vw;
             margin:auto;
-            top:28vmin;
+            bottom:-10vw;
             z-index: 3;
             right: 0;
             left: 0;

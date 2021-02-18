@@ -1,0 +1,96 @@
+.cursor {
+    color: #000;
+    display: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: fixed;
+    will-change: transform;
+    z-index: 99999999;
+  }
+   
+  .cursor-border {
+    position: absolute;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    transition: all 360ms cubic-bezier(.23,1,.32,1);
+  }
+   
+  .cursor.cursor--initialized {
+    display: block;
+  }
+   
+  .cursor .view, .drag, .play {
+    font-size: rem(10px);
+    line-height: 100%;
+    letter-spacing: 0.09em;
+    opacity: 0;
+    display:none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: opacity 80ms cubic-bezier(.23,1,.32,1);
+  }
+   
+  .cursor.cursor--off-screen {
+    opacity: 0;
+  }
+   
+  .cursor.cursor--focused .cursor-border,
+  .cursor.cursor--focused-view .cursor-border, 
+  .cursor.cursor--focused-drag .cursor-border,
+  .cursor.cursor--focused-play .cursor-border {
+    width: 90px;
+    height: 90px;
+    background:#fff;
+    border:0;
+
+  }
+
+  .view-cursor, .drag-cursor {
+    cursor: none;
+  }
+   
+  .cursor.cursor--focused-view .view {
+    opacity: 1;
+    transition: opacity 360ms cubic-bezier(.23,1,.32,1);
+    display:block;
+  }
+
+  .cursor.cursor--focused-drag .drag {
+    opacity: 1;
+    display:block;
+    transition: opacity 360ms cubic-bezier(.23,1,.32,1);
+  }
+
+
+  .cursor.cursor--focused-play .play {
+    opacity: 1;
+    display:block;
+    transition: opacity 360ms cubic-bezier(.23,1,.32,1);
+  }
+
+  .cursor.cursor--focused-view .drag {
+    opacity: 0;
+    display:none;
+  }
+
+
+  .cursor.cursor--focused-drag.dragging .drag {
+    opacity: 0;
+  }
+
+  .cursor.cursor--focused-drag.dragging .cursor-border {
+    transform-origin: top left;
+    transform: scale(0.6) translate(-50%, -50%);
+  }
+

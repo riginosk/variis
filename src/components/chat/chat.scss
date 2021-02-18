@@ -1,14 +1,22 @@
 .chat {
     position: fixed;
     bottom: rem(40px);
-    left: rem(70px);
+    left: clamp(rem(24px), 4.166vw, rem(70px));
     padding: rem(23px);
     z-index: 9;
     background: #000;
     border-radius: 100%;
+    transition: all 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+
     
     figure {
-        width:rem(18px);
-        height: rem(18px);
+        width:clamp(rem(14px), 1.071vw, rem(18px));
+        height: clamp(rem(14px), 1.071vw, rem(18px));
+
+        svg{
+            width: 100%;
+            vertical-align: top;
+            height: 100%;
+        }
     }
 }

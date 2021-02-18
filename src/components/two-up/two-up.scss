@@ -7,27 +7,54 @@
     &__item {
         width: calc(50% - 30px);
         display: inline-block;
+        position: relative;
     }
 
-    &__image {
-        margin-bottom: rem(15px);
+    &__title-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding:rem(20px) 0;
+
+    }
+
+    &__description {
+        position:absolute;
+        top:0;
+        width:100%;
+        z-index: 1;
     }
 
     &__title {
-        font-family: $display-md;
+        font-family: $display;
+        font-size: 32px;
+        line-height: 160%;
     }
+
+    &__subtitle-container {
+        position: relative;
+        padding-top:rem(20px);
+    }
+
+    &__subtitle-container:before {
+        content:'';
+        width:100%;
+        height:1px;
+        opacity: 0.1;
+        background-color: currentColor;
+        position: absolute;
+        top:0;
+    }
+    
 
     &__subtitle {
         margin-bottom:rem(72px);
+        font-size: rem(16px);
+        line-height: 160%;
+        opacity:0.5;
     }
 
     &__button {
-        width:rem(314px);
-        text-align: center;
-        font-size:rem(18px);
-        line-height: rem(18px);
-        padding: rem(20px) 0;
-        border-radius: rem(100px);
+        min-width:rem(261px);
     }
 }
-

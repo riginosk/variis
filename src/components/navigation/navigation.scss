@@ -14,13 +14,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: rem(32px) rem(70px);
+        padding: clamp(rem(14px), 1.9047vw, rem(32px)) clamp(rem(24px), 4.166vw, rem(70px));
     }
 
     &__background {
         width: 100%;
         height: 100%;
-        background-color: #000;
         position: absolute;
         left: 0;
         top: 0;
@@ -48,11 +47,16 @@
 
     .link {
         font-weight: 400;
-        font-size: rem(20px);
+        font-size: clamp(rem(18px), 1.190vw, rem(20px));
         line-height: rem(20px);
         letter-spacing: 0.015em;
         text-decoration:none;
         transition: opacity 0.25s cubic-bezier(0.8, 0.0, 0.2, 1);
+
+        @include mobile {
+            font-size: rem(12px);
+            line-height: 100%;
+        }
     }
 
     nav li a:hover {
@@ -60,8 +64,8 @@
     }
 
     figure {
-        width: rem(168px);
-        height: rem(16px);
+        width: clamp(rem(114px), 12.619vw, rem(168px));
+        height: rem(24px);
     }
 
     figure svg {
@@ -94,13 +98,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: rem(15px) 0 rem(17px) 0;
+            padding: clamp(rem(8px), 0.8928vw, rem(15px)) 0 clamp(rem(8px), 1.0119vw, rem(17px)) 0;
 
             ul {
                 display: flex;
 
                 li {
-                    margin-right: rem(40px);
+                    margin-right: clamp(rem(16px), 2.381vw, rem(40px));
                     position: relative;
                 }
 
@@ -116,6 +120,10 @@
     }
 
     &--dark {
+
+        .header__background {
+            background:#000;
+        }
 
         .secondary-navigation {
 

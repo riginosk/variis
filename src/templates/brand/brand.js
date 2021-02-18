@@ -37,6 +37,35 @@ export const pageQuery = graphql`
           modules {
             __typename
             ... on Node {
+              ... on ContentfulClassPreview {
+                id
+                featuredClassMedia {
+                  file {
+                    url
+                  }
+                }
+                featuredClassTitle
+                featuredClassModality
+                featuredClassLevel
+                featuredClassDescription
+                featuredClassInstructor
+                featuredClassInstructorImage {
+                  fluid {
+                    ...GatsbyContentfulFluid 
+                  }
+                }
+                classTiles {
+                  classTitle
+                  classModality
+                  classLevel
+                  classLink
+                  classMedia {
+                    file {
+                      url
+                    }
+                  }                 
+                }
+              }
               ... on ContentfulInstructorsGrid {
                 id
                 brandName

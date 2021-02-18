@@ -1,11 +1,14 @@
 @import "../styles/mixins/px-to-rem.scss";
+@import "../styles/mixins/breakpoints.scss";
 @import "../styles/global/typography.scss";
 @import "../styles/global/normalize.scss";
 @import "../styles/global/structure.scss";
 @import "../styles/global/elements.scss";
+@import "../styles/global/modalities.scss";
 @import "../components/navigation/navigation.scss";
 @import "../components/secondary-navigation/secondary-navigation.scss";
 @import "../components/home-hero/home-hero.scss";
+@import "../components/app-hero/app-hero.scss";
 @import "../components/space/space.scss";
 @import "../components/text-breaker/text-breaker.scss";
 @import "../components/brands-carousel/brands-carousel.scss";
@@ -28,6 +31,10 @@
 @import "../components/content-preview/content-preview.scss";
 @import "../components/modal/modal.scss";
 @import "../components/video-player/video-player.scss";
+@import "../components/press-carousel/press-carousel.scss";
+@import "../components/cta-breaker/cta-breaker.scss";
+@import "../components/cursor/cursor.scss";
+@import "../components/class-preview/class-preview.scss";
 
 .my-node-enter {
   opacity: 0;

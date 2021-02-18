@@ -16,7 +16,7 @@ const SecondaryNavigation = (props) => {
                 <div className="secondary-navigation">
                     <div className="secondary-navigation__container wrapper">
                         <ul>
-                            <li className="link">Variis EQX App</li>
+                            <li className="link">EQX+ App</li>
                         </ul>
                         <Button value="Get the App" to="/" color="#000000" backgroundColor="#959383" />
                     </div>

@@ -3,6 +3,22 @@
 
     &__section-title-container{
         grid-column: 9/13;
+
+        @include mobile {
+            grid-column: 1/7;
+            grid-row: 1;
+        }
+
+        p {
+            font-family: $display;
+            font-size: clamp(rem(22px), 1.7857vw,rem(30px));
+            line-height: 132%;
+
+            b {
+                font-weight: normal;
+                opacity: 0.5;
+            }
+        }
     }
 
     &__image-container{
@@ -12,24 +28,48 @@
     &__tile {
         position:relative;
 
+        @include mobile {
+            margin-top: clamp(rem(40px), 13.333vw, rem(50px));
+        }
+
         &--first {
             grid-column: 1/8;
 
+            @include mobile {
+                grid-column: 1/7;
+            }
+
             .content-preview__description{
                 position: absolute;
+
+                @include mobile {
+                    position:relative;
+                }
             }
         }
 
         &--second {
             grid-column: 9/13;
-            
+
+            @include mobile {
+                grid-column: 1/7;
+            }
+
             .content-preview__description{
                 position: absolute;
+
+                @include mobile {
+                    position:relative;
+                }
             }
         }
 
         &--third {
             grid-column: 2/8;
+
+            @include mobile {
+                grid-column: 1/7;
+            }
         }
     }
 

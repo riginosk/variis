@@ -36,6 +36,44 @@ export const pageQuery = graphql`
           modules {
             __typename
             ... on Node {
+              ... on ContentfulCtaBreaker {
+                id
+                eyebrow
+                childContentfulCtaBreakerTitleRichTextNode {
+                  childContentfulRichText {
+                    html
+                  }
+                }
+                backgroundColor
+                backgroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+                foregroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+                primaryCta
+                primaryCtaUrl
+                appPage
+              }
+              ... on ContentfulAppHero {
+                id
+                subtitle
+                title
+                backgroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+                foregroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+              }
               ... on ContentfulContentPreview {
                 id
                 content {
@@ -103,11 +141,13 @@ export const pageQuery = graphql`
               ... on ContentfulTwoUp {
                 id
                 imageLeft {
+                  id
                   fluid {
                     ...GatsbyContentfulFluid
                   }
                 }
                 imageRight {
+                  id
                   fluid {
                     ...GatsbyContentfulFluid
                   }
@@ -136,6 +176,10 @@ export const pageQuery = graphql`
                 media {
                   fluid {
                     ...GatsbyContentfulFluid
+                  }
+                  file {
+                    contentType
+                    url
                   }
                 }
               }
@@ -225,11 +269,13 @@ export const pageQuery = graphql`
                   ... on ContentfulTwoUp {
                     id
                     imageLeft {
+                      id
                       fluid {
                         ...GatsbyContentfulFluid
                       }
                     }
                     imageRight {
+                      id
                       fluid {
                         ...GatsbyContentfulFluid
                       }

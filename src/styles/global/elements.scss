@@ -1,11 +1,15 @@
 .button {
     button {
-        padding: rem(20px) rem(42px);
+        padding: clamp(rem(16px), 1.19vw, rem(20px)) clamp(rem(24px), 2.38vw, rem(40px));
         border-radius: rem(80px);
-        font-size: rem(18px);
+        font-size: clamp(rem(16px), 1.1vw, rem(18px) );
         line-height: rem(18px);
         letter-spacing: -0.01em;
     }
+}
+
+button:focus {
+    outline: none;
 }
 
 .play-button {

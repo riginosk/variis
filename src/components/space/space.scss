@@ -3,9 +3,9 @@
 }
 
 .space-large {
-    height: 200px;  
+    height: clamp(rem(90px), 11.9vw, rem(200px));  
 }
 
 .space-medium {
-    height: 120px;  
+    height: clamp(rem(55px), 7.14vw, rem(120px));  
 }

@@ -3,12 +3,17 @@
     overflow: hidden;
 
     .swiper-container {
-        margin-left: 140px;
+        margin-left: clamp(rem(24px), 4.166vw, rem(70px));
         overflow: visible;
     }
 
     .brand-slide {
         width:25.773809523809522vw;
+        margin-left:3.571vw;
+
+        &__link {
+            text-decoration: none;
+        }
 
         &__image-container {
             position: relative;
@@ -33,11 +38,17 @@
         }
 
         &__brand-name {
-            font-size: rem(16px);
+            font-size: rem(20px);
             line-height: 160%;
             letter-spacing: 0.015em;
             margin-top:rem(15px);
 
+        }
+        &__brand-description {
+            font-size: rem(13px);
+            line-height: 140%;
+            margin-top:rem(10px);
+            opacity: 0.6;
         }
     }
 
@@ -48,3 +59,5 @@
         }
     }
 }
+
+

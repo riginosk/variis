@@ -15,9 +15,12 @@ const FullWidthMedia = (props) => {
     const scroller = props.scroller;
 
     useEffect(() => {
-        if (scrollbar && scroller) {
+        setTimeout(function () {
+
+            if (scrollbar && scroller) {
                 const target = document.getElementById(id);
-                const targetImage = target.querySelector('.full-width-media__container');
+                const targetImage = target.querySelector('.target-' + id);
+
 
                 ScrollTrigger.scrollerProxy(scroller, {
                     scrollTop(value) {
@@ -36,26 +39,34 @@ const FullWidthMedia = (props) => {
                         id: id,
                         trigger: target,
                         start: "top top",
-                        end: "bottom top",
+                        end: 'bottom top',
                         scrub: true,
+                        invalidateOnRefresh: true
                     }
                 });
 
 
-                tl.addLabel("start")
-                    .to(targetImage, { y: "50vh" ,opacity:0}, "start")
+                gsap.utils.toArray(targetImage).forEach(layer => {
+                    const depth = layer.dataset.depth;
+                    const movement = (layer.offsetHeight * depth)
+                    tl.to(layer, { y: movement, opacity: 0, ease: "none" }, 0)
+                });
+
             }
-    
-    }, [scroller,scrollbar,id]);
+        }, 1000);
+
+    }, [scroller, scrollbar, id]);
 
     return (
         <section className="full-width-media" id={id}>
-            <div className="full-width-media__container">
+            <div className={"full-width-media__container target-" + id} data-depth='1.0'>
                 {contentType.includes("image") &&
-                    <Img className="full-width-media__image" fluid={image} />
+                    <div className={'full-width-media__holder parallax-' + id}>
+                        <Img className='full-width-media__image' fluid={image} />
+                    </div>
                 }
                 {contentType.includes("video") &&
-                    <video className="full-width-media__video" width="100%" preload='auto' loop autoPlay muted>
+                    <video className={"full-width-media__video parallax-" + id} width="100%" preload='auto' loop autoPlay muted>
                         <source src={url} type="video/mp4" />
                     </video>
                 }

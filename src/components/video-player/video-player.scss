@@ -162,11 +162,11 @@
 
 .inline-video-player {
 
-    &__play-pause {
+    &__play {
         position:absolute;
         width: rem(70px);
         height: rem(70px);
-        background:none;
+        background:#ffffff;
         border-radius: 100%;
         display: flex;
         align-items: center;
@@ -174,56 +174,18 @@
         outline: none;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: scale(1) translate(-50%,-50%);
         transition: all 0.5s ease;
         pointer-events: none;
-    }
-
-    &__play {
-        width: 100%;
-        height: 100%;
-        background: #ffffff;
-        position: absolute;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.5s ease;
-    }
-
-    &__playcta {
-        width: 100%;
-        height: 100%;
-        background:#ffffff;
-        position: absolute;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity:0;
-        transition: all 0.5s ease, opacity 0.1s ease;
-        text-transform: uppercase;
-        font-size: 11px;
-        font-family: $display-md;
-        letter-spacing: 0.09em;
-
-
-    }
-
-    .is-visible {
-        opacity: 1;
-        width: rem(90px);
-        height: rem(90px);
-        transition: all ease, width 0.5s ease, height 0.5s ease;
-
-        .inline-video-player__play {
-            opacity: 0;
-        }
-        .inline-video-player__playcta {
-            opacity: 1;
-        }
+        transform-origin:top left;
     }
 
 }
 
+.inline-video-player:hover {
+    .inline-video-player__play {
+        opacity: 0;
+        transform: scale(0) translate(-50%,-50%);
+    } 
+}
 

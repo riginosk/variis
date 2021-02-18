@@ -4,9 +4,10 @@ import TextBreaker from "../text-breaker/text-breaker"
 import BrandCarousel from '../brands-carousel/brands-carousel'
 import TwoUp from "../two-up/two-up"
 import FullWidthMedia from "../full-width-media/full-width-media"
-import InstructorGrid from "../instructors-grid/instructors-grid";
-import Carousel from "../carousel/carousel";
+import InstructorGrid from "../instructors-grid/instructors-grid"
+import Carousel from "../carousel/carousel"
 import ContentPreview from '../content-preview/content-preview'
+import PressCarousel from '../press-carousel/press-carousel'
 
 const Section = (props) => {
     const sectionModules = props.data;
@@ -39,7 +40,7 @@ const Section = (props) => {
 
         if (module.__typename === 'ContentfulTwoUp') {
             return (
-            <TwoUp key={moduleDataId + module.id} data={module} />
+            <TwoUp key={moduleDataId + module.id} data={module} scrollbar={scrollbar} scroller={scroller} />
             )
         }
 
@@ -58,6 +59,12 @@ const Section = (props) => {
         if (module.__typename === 'ContentfulCarousel') {
             return (
                 <Carousel key={moduleDataId + module.id + index} data={module} />
+            )
+        }
+
+        if (module.__typename === 'ContentfulPressCarousel') {
+            return (
+                <PressCarousel key={moduleDataId + module.id + index} data={module} />
             )
         }
 

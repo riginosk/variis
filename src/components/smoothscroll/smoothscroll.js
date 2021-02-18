@@ -5,43 +5,16 @@ const SmoothScroll = ({ children }) => {
 
     useEffect(() => {
 
-        var scrollbar = Scrollbar.init(
-            document.querySelector('.scroll-container'), {
-            damping: 0.1,
-            renderByPixels: true,
-            continuousScrolling: false,
-            alwaysShowTracks: false
-        }
-        );
-
-        function smoothscrollbar() {
-            if (typeof window !== 'undefined') {
-                if (window.innerWidth <= 768) {
-                    scrollbar.destroy('.scroll-container');
-                }
+        if(!window.matchMedia("(pointer: coarse)").matches) {
+            var scrollbar = Scrollbar.init(
+                document.querySelector('.scroll-container'), {
+                damping: 0.1,
+                renderByPixels: true,
+                continuousScrolling: false,
+                alwaysShowTracks: false
             }
-
-            if (typeof window !== 'undefined') {
-                if (window.innerWidth > 768) {
-                    scrollbar = Scrollbar.init(
-                        document.querySelector('.scroll-container'), {
-                        damping: 0.1,
-                        renderByPixels: true,
-                        continuousScrolling: false,
-                        alwaysShowTracks: false
-                    }
-                    );
-                }
-            }
-
+            );
         }
-
-        smoothscrollbar();
-
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', smoothscrollbar)
-        }
-
 
     },[]);
 

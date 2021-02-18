@@ -9,7 +9,7 @@
         margin-bottom:120px;
         
         p {            
-            font-size: 100px;
+            font-size: clamp(rem(60px), 5.952vw, rem(100px));
             line-height: 100%;
             margin: 0 72px;
         }
@@ -18,8 +18,7 @@
 
 
 .review {
-    padding: rem(65px) 0;
-    border-bottom: 1px solid #00000026;
+    padding: rem(65px) 0 0 0;
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 60px;
     display: grid;
@@ -43,8 +42,16 @@
     }
 
     p {
-        font-size: rem(18px);
+        font-size: clamp(rem(16px), 1.071vw, rem(18px));
         line-height: 160%;
     }
 }
 
+
+.review:after {
+    content: '';
+    width: 100%;
+    border: 1px solid;
+    grid-column: 1/11;
+    opacity: 0.1;
+}

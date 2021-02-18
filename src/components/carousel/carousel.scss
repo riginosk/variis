@@ -1,8 +1,18 @@
 .carousel {
-    padding:0 rem(70px);
+    padding:0 clamp(rem(24px), 4.166vw, rem(70px));
 
     .carousel-slide {
         width: 36.13vw;
+        margin-right: clamp(rem(36px), 3.57vw, rem(60px));
+
+        @include small-desktop {
+            width: 52.3437vw; 
+        }
+
+        @include mobile {
+            width: 86.666vw;
+            margin-right: clamp(rem(12px), 3.2vw, rem(24px));
+        }
 
         img{
             opacity:1!important;
@@ -27,5 +37,9 @@
             padding-top: 8px;
             opacity: 0.6;
         }
+    }
+
+    .carousel-slide:last-child{
+        margin-right: 0;       
     }
 }

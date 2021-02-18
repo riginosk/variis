@@ -1,6 +1,7 @@
 import React from 'react'
 import './base.css'
 import Chat from './chat/chat';
+import Cursor from './cursor/cursor';
 import Navigation from './navigation/navigation'
 
 class Template extends React.Component {
@@ -11,6 +12,7 @@ class Template extends React.Component {
 
     return (
       <>
+        < Cursor/>
         <Navigation  data={data} />
         {children}
         <Chat />

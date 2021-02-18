@@ -36,6 +36,58 @@ export const pageQuery = graphql`
           modules {
             __typename
             ... on Node {
+              ... on ContentfulAppHero {
+                id
+                subtitle
+                title
+                backgroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+                foregroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+              }
+              ... on ContentfulCtaBreaker {
+                id
+                eyebrow
+                childContentfulCtaBreakerTitleRichTextNode {
+                  childContentfulRichText {
+                    html
+                  }
+                }
+                backgroundColor
+                backgroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+                foregroundImage {
+                  fluid {
+                    ...GatsbyContentfulFluid
+                  }
+                }
+                primaryCta
+                primaryCtaUrl
+                appPage
+              }
+              ... on ContentfulPressCarousel {
+                id
+                pressSlides {
+                  id
+                  linkUrl
+                  publicationDate
+                  quote
+                  companyLogo {
+                    file {
+                      url
+                    }
+                  }
+                }
+              }
               ... on ContentfulContentPreview {
                 id
                 content {
@@ -103,11 +155,13 @@ export const pageQuery = graphql`
               ... on ContentfulTwoUp {
                 id
                 imageLeft {
+                  id
                   fluid {
                     ...GatsbyContentfulFluid
                   }
                 }
                 imageRight {
+                  id
                   fluid {
                     ...GatsbyContentfulFluid
                   }
@@ -137,6 +191,10 @@ export const pageQuery = graphql`
                   fluid {
                     ...GatsbyContentfulFluid
                   }
+                  file {
+                    contentType
+                    url
+                  }
                 }
               }
               ... on ContentfulTextBreaker {
@@ -157,6 +215,42 @@ export const pageQuery = graphql`
                 modules {
                   __typename
                   ... on Node {
+                    ... on ContentfulCtaBreaker {
+                      id
+                      eyebrow
+                      childContentfulCtaBreakerTitleRichTextNode {
+                        childContentfulRichText {
+                          html
+                        }
+                      }
+                      backgroundColor
+                      backgroundImage {
+                        fluid {
+                          ...GatsbyContentfulFluid
+                        }
+                      }
+                      foregroundImage {
+                        fluid {
+                          ...GatsbyContentfulFluid
+                        }
+                      }
+                      primaryCta
+                      primaryCtaUrl
+                    }
+                    ... on ContentfulPressCarousel {
+                      id
+                      pressSlides {
+                        id
+                        linkUrl
+                        publicationDate
+                        quote
+                        companyLogo {
+                          file {
+                            url
+                          }
+                        }
+                      }
+                    }
                     ... on ContentfulContentPreview {
                       id
                       content {
@@ -225,11 +319,13 @@ export const pageQuery = graphql`
                   ... on ContentfulTwoUp {
                     id
                     imageLeft {
+                      id
                       fluid {
                         ...GatsbyContentfulFluid
                       }
                     }
                     imageRight {
+                      id
                       fluid {
                         ...GatsbyContentfulFluid
                       }

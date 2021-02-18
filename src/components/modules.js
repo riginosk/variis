@@ -18,6 +18,10 @@ import BikeHero from "./bike-hero/bike-hero";
 import VideoScrub from "./video-scrub/video-scrub";
 import Carousel from "./carousel/carousel";
 import ContentPreview from "./content-preview/content-preview";
+import PressCarousel from "./press-carousel/press-carousel";
+import CtaBreaker from "./cta-breaker/cta-breaker";
+import ClassPreview from "./class-preview/class-preview";
+import AppHero from "./app-hero/app-hero";
 
 const Modules = (props) => {
     const moduleData = props.moduleData;
@@ -31,7 +35,9 @@ const Modules = (props) => {
         setLocation(props.location)
         setScroller(document.querySelector('.scroll-container'))
         setScrollbar(Scrollbar.get(scroller))
+
     },[props.location, scroller]);
+
 
     if (moduleData.modules !== null) {
         content = moduleData.modules.map((module, index) => {
@@ -68,7 +74,7 @@ const Modules = (props) => {
 
             if (module.__typename === 'ContentfulTwoUp') {
                 return (
-                    <TwoUp key={moduleData.id + module.id + index} data={module} />
+                    <TwoUp key={moduleData.id + module.id + index} data={module} scrollbar={scrollbar} scroller={scroller} />
                 )
             }
 
@@ -108,6 +114,12 @@ const Modules = (props) => {
                 )
             }
 
+            if (module.__typename === 'ContentfulAppHero') {
+                return (
+                    <AppHero key={moduleData.id + module.id + index} location={location} data={module} scrollbar={scrollbar} scroller={scroller} />
+                )
+            }
+
             if (module.__typename === 'ContentfulVideoScrub') {
                 return (
                     <VideoScrub key={moduleData.id + module.id + index} location={location} data={module} scrollbar={scrollbar} scroller={scroller} />
@@ -117,6 +129,24 @@ const Modules = (props) => {
             if (module.__typename === 'ContentfulCarousel') {
                 return (
                     <Carousel key={moduleData.id + module.id + index} location={location} data={module} />
+                )
+            }
+
+            if (module.__typename === 'ContentfulPressCarousel') {
+                return (
+                    <PressCarousel key={moduleData.id + module.id + index} data={module} />
+                )
+            }
+
+            if (module.__typename === 'ContentfulCtaBreaker') {
+                return (
+                    <CtaBreaker key={moduleData.id + module.id + index} data={module} />
+                )
+            }
+
+            if (module.__typename === 'ContentfulClassPreview') {
+                return (
+                    <ClassPreview key={moduleData.id + module.id + index} data={module} />
                 )
             }
 

@@ -36,46 +36,46 @@ class InlineVideoPlayer extends React.Component {
     }
   }
 
-  componentDidMount() {
+  // componentDidMount() {
 
-    var cursor = document.querySelector(".inline-video-player__play-pause");
-    var videoHover = document.querySelector(".inline-player");
+  //   var cursor = document.querySelector(".inline-video-player__play-pause");
+  //   var videoHover = document.querySelector(".inline-player");
 
-    function mousecursors(e){
+  //   function mousecursors(e){
 
-      cursor.classList.add("is-visible");
+  //     cursor.classList.add("is-visible");
 
-      var rect = videoHover.getBoundingClientRect();
-      var x = e.clientX - rect.left; 
-      var y = e.clientY - rect.top; 
+  //     var rect = videoHover.getBoundingClientRect();
+  //     var x = e.clientX - rect.left; 
+  //     var y = e.clientY - rect.top; 
 
-      cursor.style.left = x + "px";
-      cursor.style.top = y + "px";
+  //     cursor.style.left = x + "px";
+  //     cursor.style.top = y + "px";
       
-    }
+  //   }
 
-    function unhighlight() {
-      cursor.classList.remove("is-visible");
-      cursor.style.left = 50 + "%";
-      cursor.style.top = 50 + "%";
-      document.removeEventListener('mousemove', mousecursors)
-    }
+  //   function unhighlight() {
+  //     cursor.classList.remove("is-visible");
+  //     cursor.style.left = 50 + "%";
+  //     cursor.style.top = 50 + "%";
+  //     document.removeEventListener('mousemove', mousecursors)
+  //   }
 
-    videoHover.onmousemove = function() { 
-      document.addEventListener('mousemove', mousecursors)
-    }
+  //   videoHover.onmousemove = function() { 
+  //     document.addEventListener('mousemove', mousecursors)
+  //   }
   
-    videoHover.onmouseleave = function() { 
-      unhighlight();
-    }
+  //   videoHover.onmouseleave = function() { 
+  //     unhighlight();
+  //   }
 
   
-  }
+  // }
 
   handlePlayPause = () => {
-    var element = document.querySelector(".inline-video-player__play-pause");
-    element.classList.toggle("is-pause");
-    element.classList.toggle("is-play");
+    // var element = document.querySelector(".inline-video-player__play-pause");
+    // element.classList.toggle("is-pause");
+    // element.classList.toggle("is-play");
     this.setState({ playing: !this.state.playing })
   }
 
@@ -143,7 +143,7 @@ class InlineVideoPlayer extends React.Component {
 
     return (
       <>
-        <button className='inline-video-player' onFocus={this.handlePlay} onMouseOver={this.handlePlay} onMouseLeave={this.handlePause} onFocusOut={this.handlePause} >
+        <div className='inline-video-player play-cursor' onFocus={this.handlePlay} onMouseOver={this.handlePlay} onMouseLeave={this.handlePause} >
           <div className='player-wrapper'>
             <ReactPlayer
               ref={this.ref}
@@ -168,17 +168,12 @@ class InlineVideoPlayer extends React.Component {
               onProgress={this.handleProgress}
             />
           </div>
-          <button className="inline-video-player__play-pause is-pause">
             <div className="inline-video-player__play">
               <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0.75 14.583V-0.000366211L12.7083 7.2913L0.75 14.583Z" fill="black" />
               </svg>
             </div>
-            <div className="inline-video-player__playcta">
-              <span>Play</span>
-            </div>
-          </button>
-        </button>
+        </div>
 
       </>
     )

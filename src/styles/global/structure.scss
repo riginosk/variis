@@ -10,11 +10,16 @@ body {
 }
 
 .wrapper {
-    margin:0 rem(70px);
+    margin:0 clamp(rem(24px), 4.166vw, rem(70px));
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: rem(60px);
+
+    @include mobile {
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: rem(12px);
+    }
 }

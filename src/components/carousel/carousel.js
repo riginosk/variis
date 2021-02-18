@@ -26,14 +26,14 @@ const Carousel = (props) => {
         new Swiper('.swiper-carousel', {
             direction: 'horizontal',
             slidesPerView: 'auto',
-            spaceBetween: 60,
+            spaceBetween:0,
             speed: 500,
         })
     }, []);
 
     return (
         <section className="carousel">
-            <div className="swiper-carousel">
+            <div className="swiper-carousel drag-cursor">
                 <div className="swiper-wrapper">
                     {carouselSlide}
                 </div>
